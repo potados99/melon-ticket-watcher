@@ -1,7 +1,7 @@
 {
-  "name": "__NAME__",
+  "name": "melon-ticket-watcher",
   "version": "0.0.1",
-  "description": "__DESCRIPTION__",
+  "description": "멜론티켓 취소표 watcher",
   "scripts": {
     "test": "jest",
     "dev": "nodemon --exec ts-node index.ts",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/__REPOSITORY__.git"
+    "url": "git+https://github.com/potados99/melon-ticket-watcher.git"
   },
   "keywords": [],
   "author": "potados99",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/__REPOSITORY__/issues"
+    "url": "https://github.com/potados99/melon-ticket-watcher/issues"
   },
-  "homepage": "https://github.com/__REPOSITORY__#readme",
+  "homepage": "https://github.com/potados99/melon-ticket-watcher#readme",
   "dependencies": {
     "node-fetch": "^2.6.1"
   },
