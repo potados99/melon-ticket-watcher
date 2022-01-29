@@ -22,8 +22,9 @@ export default class Notifier {
   async notify({schedule, activatedSeats, deactivatedSeats}: NotifyParams) {
     const added = activatedSeats.length > 0 ? `${activatedSeats.map(s => s.toString()).join(', ')} 생김\n` : '';
     const gone = deactivatedSeats.length > 0 ? `${deactivatedSeats.map(s => s.toString()).join(', ')} 사라짐\n` : '';
+    const link = `<https://m.ticket.melon.com/public/index.html#performance.index?prodId=${this.productId}|바로가기>`;
 
-    await this.postToSlack(`${added}${gone}${schedule.toString()}`);
+    await this.postToSlack(`${added}${gone}${schedule.toString()}\n${link}`);
   }
 
   private async postToSlack(text: string) {
