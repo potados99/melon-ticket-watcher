@@ -7,7 +7,8 @@
     "dev": "nodemon --exec ts-node index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "preview": "tsc && node dist/index.js"
+    "preview": "npm run build && node dist/index.js",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
