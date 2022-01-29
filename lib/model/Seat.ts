@@ -1,13 +1,14 @@
 export default class Seat {
   constructor(
+    readonly id: string,
     readonly row: string,
     readonly column: string,
     readonly available: Boolean
   ) {
   }
 
-  static fromRawSeat({rn, sn, sl}: any): Seat {
-    return new Seat(rn, sn, sl === 'Y');
+  static fromRawSeat({sid, rn, sn, sl}: any): Seat {
+    return new Seat(sid, rn, sn, sl === 'Y');
   }
 
   get valid(): Boolean {
