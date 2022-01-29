@@ -14,7 +14,6 @@ export default class Worker {
 
   async tick() {
     const schedules = await this.repo.getSchedules();
-
     await Promise.all(schedules.map(s => s.fetchSeats(this.repo)));
 
     process.stdout.write('.');
@@ -32,7 +31,6 @@ export default class Worker {
       }
 
       const detector = new Detector(prev, current);
-
       if (detector.hasNoChanges) {
         continue;
       }
