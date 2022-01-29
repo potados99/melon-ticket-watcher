@@ -8,6 +8,14 @@ export default class Detector {
   ) {
   }
 
+  get hasNoChanges(): Boolean {
+    return this.diff() === 0 && this.activatedSeats().length === 0 && this.deactivatedSeats().length === 0;
+  }
+
+  get hasChanges(): Boolean {
+    return !this.hasNoChanges;
+  }
+
   diff(): number {
     return this.scheduleAfter.availableSeats - this.scheduleBefore.availableSeats;
   }

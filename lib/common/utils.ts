@@ -9,3 +9,7 @@ export function interceptParameter(functionName: string, callString: string): an
 
   return holder.param;
 }
+
+export function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
