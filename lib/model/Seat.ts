@@ -16,7 +16,7 @@ export default class Seat {
   }
 
   toString(): string {
-    return `${this.row}열 ${this.column}번(${this.available})`;
+    return `${this.row}열 ${this.column}번`;
   }
 
   toNormalizedString(): string {

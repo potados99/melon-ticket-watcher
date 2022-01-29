@@ -37,8 +37,10 @@ export default class Worker {
         continue;
       }
 
+      process.stdout.write('_');
+
       await this.notifier.notify({
-        date: current.date,
+        schedule: current,
         activatedSeats: detector.activatedSeats(),
         deactivatedSeats: detector.deactivatedSeats()
       });
