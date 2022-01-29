@@ -12,15 +12,15 @@ export default class Worker {
 
   private previousSchedules: Schedule[] = [];
 
-  async detectChanges() {
+  async tick() {
     const schedules = await this.repo.getSchedules();
 
     await Promise.all(schedules.map(s => s.fetchSeats(this.repo)));
 
-    console.log('Fetch 완료.');
+    process.stdout.write('.');
 
     if (this.previousSchedules.length === 0) {
-      console.debug('인메모리 저장소 활성화');
+      process.stdout.write('!');
       this.previousSchedules = schedules;
       return;
     }
@@ -34,7 +34,6 @@ export default class Worker {
       const detector = new Detector(prev, current);
 
       if (detector.hasNoChanges) {
-        console.debug(`${current.toString()} 변화 없음.`);
         continue;
       }
 

@@ -7,6 +7,12 @@ type NotifyParams = {
 };
 
 export default class Notifier {
+  constructor(
+    private readonly productId: number,
+    private readonly slackWebhookUrl: string
+  ) {
+  }
+
   async notify(params: NotifyParams) {
     console.log(params);
   }
