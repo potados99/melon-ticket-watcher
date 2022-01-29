@@ -20,6 +20,8 @@ export default class Worker {
 
     if (this.previousSchedules.length === 0) {
       process.stdout.write('!');
+      await this.notifier.notifyText('!');
+
       this.previousSchedules = schedules;
       return;
     }

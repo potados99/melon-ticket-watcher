@@ -15,11 +15,15 @@ export default class Notifier {
   ) {
   }
 
+  async notifyText(message: string) {
+    await this.postToSlack(message);
+  }
+
   async notify({schedule, activatedSeats, deactivatedSeats}: NotifyParams) {
     const added = activatedSeats.length > 0 ? `${activatedSeats.map(s => s.toString()).join(', ')} 생김\n` : '';
     const gone = deactivatedSeats.length > 0 ? `${deactivatedSeats.map(s => s.toString()).join(', ')} 사라짐\n` : '';
 
-    await this.postToSlack(`${schedule.toString()}\n${added}${gone}\n`);
+    await this.postToSlack(`${added}${gone}${schedule.toString()}`);
   }
 
   private async postToSlack(text: string) {
