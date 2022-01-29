@@ -1,4 +1,4 @@
-import Fetcher from '../lib/Fetcher';
+import Fetcher from '../lib/actor/Fetcher';
 
 describe('Fetcher 기본 기능', () => {
   const fetcher = new Fetcher(206538);

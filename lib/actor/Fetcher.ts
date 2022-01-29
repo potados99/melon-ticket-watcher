@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import {interceptParameter} from './utils';
+import {interceptParameter} from '../common/utils';
 
 export default class Fetcher {
   constructor(private readonly productId: number) {

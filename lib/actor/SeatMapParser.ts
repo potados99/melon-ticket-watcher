@@ -1,4 +1,4 @@
-import Seat from './Seat';
+import Seat from '../model/Seat';
 
 export default class SeatMapParser {
   constructor(private readonly rawSeatMap: any) {
