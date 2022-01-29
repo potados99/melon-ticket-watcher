@@ -1,18 +1,16 @@
 import Seat from '../model/Seat';
 
 export default class SeatMapParser {
-  private rawSeats: any[] = this
-    .rawSeatMap
-    .seatData
-    .st
-    .flatMap((el: any) => el.ss);
-
   constructor(private readonly rawSeatMap: any) {
   }
 
   allSeats(): Seat[] {
-    return this.rawSeats
-      .map(raw => Seat.fromRawSeat(raw))
+    return this
+      .rawSeatMap
+      .seatData
+      .st
+      .flatMap((el: any) => el.ss)
+      .map((raw: any) => Seat.fromRawSeat(raw))
       .filter((s: Seat) => s.valid);
   }
 
