@@ -1,5 +1,5 @@
 import Seat from './Seat';
-import PerfRepository from './PerfRepository';
+import PerfRepository from '../actor/PerfRepository';
 import {format, parse} from 'date-fns';
 
 export default class Schedule {

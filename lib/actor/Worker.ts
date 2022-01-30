@@ -1,4 +1,4 @@
-import PerfRepository from '../model/PerfRepository';
+import PerfRepository from './PerfRepository';
 import Schedule from '../model/Schedule';
 import Detector from './Detector';
 import Notifier from './Notifier';

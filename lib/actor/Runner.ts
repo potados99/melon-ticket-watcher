@@ -1,6 +1,6 @@
 import {program} from 'commander';
 import Fetcher from './Fetcher';
-import PerfRepository from '../model/PerfRepository';
+import PerfRepository from './PerfRepository';
 import Notifier from './Notifier';
 import Worker from './Worker';
 import {sleep} from '../common/utils';
