@@ -12,15 +12,3 @@ describe('좌석 맵 해석', () => {
     );
   });
 });
-
-/*
-
-npm start -- \
---product-id 206790 \
---schedule-no 10006 \
---slack-webhook-url 'https://hooks.slack.com/services/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' \
---poll-interval-millis 500
-
-
-
- */
