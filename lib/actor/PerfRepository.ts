@@ -5,10 +5,7 @@ import ScheduleParser from './ScheduleParser';
 import SeatMapParser from './SeatMapParser';
 
 export default class PerfRepository {
-  constructor(
-    private readonly fetcher: Fetcher
-  ) {
-  }
+  constructor(private readonly fetcher: Fetcher) {}
 
   async getSchedules(): Promise<Schedule[]> {
     const fetched = await this.fetcher.fetchSchedules();

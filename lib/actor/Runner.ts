@@ -1,37 +1,27 @@
-import {program} from 'commander';
-import Fetcher from './Fetcher';
-import PerfRepository from './PerfRepository';
-import Notifier from './Notifier';
 import Worker from './Worker';
+import Config from '../Config';
 import {sleep} from '../common/utils';
+import Fetcher from './Fetcher';
+import Notifier from './Notifier';
+import PerfRepository from './PerfRepository';
 
 export default class Runner {
-  private options = program
-    .requiredOption('--product-id <number>', '멜론티켓 상품 ID')
-    .requiredOption('--slack-webhook-url <string>', '슬랙으로 메시지를 보낼 웹 훅 URL')
-    .option('--poll-interval-millis <number>', '폴링 간격(밀리초)', '500')
-    .option('--seat-expression [string]', '알림 받을 좌석 번호 표현식')
-    .parse()
-    .opts();
-
   async run() {
-    console.log(this.options);
+    Config.parseCommandLineArguments();
+
+    console.log(Config.current);
     console.log('시작');
 
-    const {slackWebhookUrl, pollIntervalMillis, seatExpression} = this.options;
-    const productId = Number.parseInt(this.options.productId);
-    const interval = parseInt(pollIntervalMillis);
-
-    const fetcher = new Fetcher(productId);
+    const fetcher = new Fetcher(Config.current);
     const repo = new PerfRepository(fetcher);
 
-    const notifier = new Notifier(productId, slackWebhookUrl);
-    const worker = new Worker(repo, notifier);
+    const notifier = new Notifier(Config.current);
+    const worker = new Worker(repo, notifier, Config.current);
 
     while (true) {
       await worker.tick();
 
-      await sleep(interval);
+      await sleep(Config.current.pollIntervalMillis);
     }
   }
 }
