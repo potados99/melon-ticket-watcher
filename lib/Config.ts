@@ -1,10 +1,10 @@
 import {program} from 'commander';
 
 const options = program
-  .requiredOption('--product-id <number>', '멜론티켓 상품 ID')
-  .option('--schedule-no <number>', '공연 시간 ID')
-  .requiredOption('--slack-webhook-url <string>', '슬랙으로 메시지를 보낼 웹 훅 URL')
-  .option('--poll-interval-millis <number>', '폴링 간격(밀리초)', '500');
+  .requiredOption(208789)
+  .option(100001)
+  .requiredOption(https://hooks.slack.com/services/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)
+  .option(300);
 
 export default class Config {
   static current: Config;
